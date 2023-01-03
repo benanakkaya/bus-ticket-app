@@ -1,12 +1,12 @@
 import React from 'react'
-import { ToastContainer } from 'react-toastify';
-import ListingMain from '../components/ListingMain';
-import Navbar from '../components/Navbar';
-import SearchFormTop from '../components/SearchFormTop';
+import { ToastContainer } from 'react-toastify'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+import TicketPurchase from '../components/TicketPurchase'
 
-function BusListing() {
+export default function PurchasePage() {
   return (
-    <div>
+    <div className='bg-primary'>
       <ToastContainer
         position="top-right"
         autoClose={1500}
@@ -20,12 +20,8 @@ function BusListing() {
         theme="light"
       />
       <Navbar />
-      <SearchFormTop />
-      <ListingMain />
+      <TicketPurchase />
+      <Footer />
     </div>
   )
 }
-
-
-
-export default BusListing;

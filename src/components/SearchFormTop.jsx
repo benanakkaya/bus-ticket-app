@@ -1,30 +1,63 @@
-import React from 'react'
+import { useFormik } from 'formik';
+import React, { useContext } from 'react'
+import { VoyagesContext } from '../contexts/Voyages';
+import * as yup from 'yup';
 
 function SearchFormTop() {
+
+    const { filterValues, fetchVoyages, setFilterMode } = useContext(VoyagesContext);
+
+    const formik = useFormik({
+        initialValues: {
+            start: "",
+            stop: "",
+            date: ""
+        },
+        onSubmit: (values) => {
+            fetchVoyages(values);
+            setFilterMode(false);
+        },
+        validationSchema: yup.object().shape({
+            start: yup.string().required("Lütfen başlangıç noktanızı seçin."),
+            stop: yup.string().required("Lütfen gidiş noktanızı seçin."),
+            date: yup.string().required("Lütfen bir tarih seçin"),
+        })
+    })
+
+
     return (
         <section className=' mt-8 mb-4 font-kanit'>
             <div className='container bg-primary py-4 px-8 border border-secondary'>
-                <form>
+                <form onSubmit={formik.handleSubmit}>
                     <div className='flex justify-start md:justify-center items-center gap-x-4 flex-wrap'>
                         <div className='flex justify-start items-center gap-x-4'>
                             <div className='flex flex-col'>
-                                <label htmlFor='where'>Nereden:</label>
-                                <span className='mt-2 flex items-center border border-customgray px-2 bg-white' ><i class="fa-sharp fa-solid fa-location-dot text-secondary"></i><input className=' outline-none px-2 py-1 ml-2 w-28 md:w-48  h-8' placeholder='Nereden' name='where' type="text" /></span>
+                                <label htmlFor='start'>Nereden:</label>
+                                <span className='mt-2 flex items-center border border-customgray px-2 bg-white' >
+                                    <i className="fa-sharp fa-solid fa-location-dot text-secondary"></i>
+                                    <input onChange={formik.handleChange} className='bg-white outline-none px-2 py-1 ml-2 w-28 md:w-48  h-8' placeholder={filterValues.start} name='start' type="text" />
+                                </span>
                             </div>
                             <div>
-                                <button className='mt-8 h-8'><i class="fa-solid fa-right-left"></i></button>
+                                <button className='mt-8 h-8'><i className="fa-solid fa-right-left"></i></button>
                             </div>
                             <div className='flex flex-col'>
-                                <label htmlFor='where'>Nereye:</label>
-                                <span className='mt-2 flex items-center border border-customgray px-2 bg-white' ><i class="fa-sharp fa-solid fa-location-dot text-secondary"></i><input className=' outline-none px-2 py-1 ml-2 w-28 md:w-48 h-8' placeholder='Nereye' name='where' type="text" /></span>
+                                <label htmlFor='stop'>Nereye:</label>
+                                <span className='mt-2 flex items-center border border-customgray px-2 bg-white' >
+                                    <i className="fa-sharp fa-solid fa-location-dot text-secondary"></i>
+                                    <input onChange={formik.handleChange} className='bg-white outline-none px-2 py-1 ml-2 w-28 md:w-48 h-8' placeholder={filterValues.stop} name='stop' type="text" />
+                                </span>
                             </div>
                         </div>
                         <div className='flex flex-col'>
                             <label htmlFor='where'>Tarih:</label>
-                            <span className='mt-2 border border-customgray px-2 bg-white' ><i class="fa-regular fa-calendar text-secondary"></i><input className='date-input outline-none px-2 py-1 ml-2 w-30 md:w-48 text-center h-8' placeholder='Tarih' name='where' type="date" /></span>
+                            <span className='mt-2 border border-customgray px-2 bg-white' >
+                                <i className="fa-regular fa-calendar text-secondary"></i>
+                                <input onChange={formik.handleChange} className='bg-white date-input outline-none px-2 py-1 ml-2 w-30 md:w-48 text-center h-8' placeholder={filterValues.date} name='date' type="date" />
+                                </span>
                         </div>
                         <div >
-                            <button className='px-5 py-1 bottom-0 mt-8 w-30 md:w-48 h-9 bg-secondary hover:bg-green-600 rounded-md text-white border border-white'>ARA</button>
+                            <button type='submit' className='px-5 py-1 bottom-0 mt-8 w-30 md:w-48 h-9 bg-secondary hover:bg-green-600 rounded-md text-white border border-white'>ARA</button>
                         </div>
                     </div>
                 </form>
