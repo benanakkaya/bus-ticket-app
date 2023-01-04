@@ -11,54 +11,56 @@ function Users(props) {
     const [formState, setFormState] = useState("login");
     const [loginned, setLoginned] = useState(true);
     const [loginnedUser, setLoginnedUser] = useState("");
+    const [userReservations,setUserReservations] = useState([]);
 
     useEffect(() => {
         var loginned = JSON.parse(localStorage.getItem("loginned"));
-        if(loginned === true){
+        if (loginned === true) {
             setLoginned(true);
             var localUsername = JSON.parse(localStorage.getItem("username"));
             setLoginnedUser(localUsername);
+            fetchUserReservations(localUsername)
         }
-        else{
+        else {
             setLoginned(false);
             setLoginnedUser("");
         }
-        
-    },[])
+
+    }, [])
 
     const loginControl = async (values) => {
-       const response = await axios.get("http://localhost:3002/users", {params: {username:values.username,password:values.password}});
-       if(response.data.length === 1){
-        toast.success('Giriş işlemi başarılı!', {
-            position: "top-right",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-        setTimeout(() => {
-            setLoginned(true);
-            setLoginnedUser(values.username);
-            localStorage.setItem("username", JSON.stringify(values.username));
-            localStorage.setItem("loginned", JSON.stringify(true));
-            setModalState(false)
-        },1500)
-       }
-       else{
-        toast.error('Lütfen bilgilerinizi kontrol edin!', {
-            position: "top-right",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-       }
+        const response = await axios.get("http://localhost:3002/users", { params: { username: values.username, password: values.password } });
+        if (response.data.length === 1) {
+            toast.success('Giriş işlemi başarılı!', {
+                position: "top-right",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setTimeout(() => {
+                setLoginned(true);
+                setLoginnedUser(values.username);
+                localStorage.setItem("username", JSON.stringify(values.username));
+                localStorage.setItem("loginned", JSON.stringify(true));
+                setModalState(false)
+            }, 1500)
+        }
+        else {
+            toast.error('Lütfen bilgilerinizi kontrol edin!', {
+                position: "top-right",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     }
 
     const setNewUser = async (values) => {
@@ -89,6 +91,13 @@ function Users(props) {
         localStorage.setItem("loginned", JSON.stringify(false));
     }
 
+    //Üye kullanıcının rezervasyon bilgilerinin çekildiği fonksiyon
+    const fetchUserReservations = async (value) => {
+        const res = await axios.get("http://localhost:3002/reservations/", { params: { username: value } });
+        setUserReservations(res.data)
+    }
+
+console.log(userReservations);
 
     const values = {
         modalState,

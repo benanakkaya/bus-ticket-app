@@ -4,7 +4,7 @@ import { VoyagesContext } from '../contexts/Voyages';
 
 function SetFilter() {
 
-  const { voyages, handleFilterSubmit, setFiltValues} = useContext(VoyagesContext);
+  const { voyages, handleFilterSubmit, setFiltValues,selectedSeats, setSelectedSeats} = useContext(VoyagesContext);
 
 
   const companyList = Array.from(new Set(voyages.map((element) => element.company)));
@@ -21,6 +21,7 @@ function SetFilter() {
     onSubmit: (values) => {
       handleFilterSubmit(values);
       setFiltValues(values);
+      setSelectedSeats([]);
     }
   })
 

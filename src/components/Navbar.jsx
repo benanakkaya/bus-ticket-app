@@ -14,8 +14,6 @@ function Navbar() {
 
 
 
-
-
     return (
 
         <header className='navbar bg-primary h-96 flex-col  md:h-16 flex md:flex-row font-kanit text-secondary border-b-2 border-secondary px-12 text-md'>
@@ -27,7 +25,7 @@ function Navbar() {
 
                 <div className='navbar-middle flex flex-1 mx-10 gap-x-4 hidden lg:flex '>
                     <a href='#/' className='hover:text-customgray'>Otobüs Bileti</a>
-                    <a href='#/' className='hover:text-customgray'>Bilet Sorgulama</a>
+                    <Link to='/ticket-check' className='hover:text-customgray'>Bilet Sorgulama</Link>
                 </div>
 
                 {loginned === true ?

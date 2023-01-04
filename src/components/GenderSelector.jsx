@@ -1,14 +1,19 @@
-import React, { memo } from 'react';
+import { customAlphabet } from 'nanoid';
+import React, { memo, useContext } from 'react';
+import { UsersContext } from '../contexts/Users';
+import { VoyagesContext } from '../contexts/Voyages';
 
 
-function GenderSelector({ stateGT, setStateGT, xcordGT, ycordGT, selected, setSelectedSeats }) {
+function GenderSelector({ stateGT, setStateGT, xcordGT, ycordGT, selected }) {
 
 
-
+    const {selectedSeats,setSelectedSeats} = useContext(VoyagesContext);
+    const {loginnedUser} = useContext(UsersContext);
+    const nanoid = customAlphabet('1234567890abcdef', 10);
 
     const handleSelectGender = (e) => {
 
-        setSelectedSeats((prev) => [...prev, [selected[0].slice(9), e.target.name, selected[1], selected[2], { name: "", lastname: "", tel: "", tc: "" }]]);
+        setSelectedSeats((prev) => [...prev, [selected[0].slice(9), e.target.name, selected[1], selected[2], { name: "", lastname: "", tel: "", tc: "", id: nanoid(8), username: loginnedUser }]]);
 
         const targetSeat = document.getElementById(`${selected[0]}`);
         targetSeat.classList.toggle("bg-gray-200");

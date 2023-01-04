@@ -28,3 +28,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     border-right: 10px solid transparent; 
     border-top: 10px solid rgb(251 146 60 / var(--tw-border-opacity));
   }
+
+
+td{
+    padding:0.5rem 2.5rem;
+}
+
+th{
+    padding:0.2rem 1.5rem;
+}

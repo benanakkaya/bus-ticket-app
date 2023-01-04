@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className='bg-primary '>
+        <footer className='bg-primary border-t border-secondary'>
             <div className='container' >
                 <div className='footer-top flex justify-between items-center py-3 px-6'>
                     <a href='#/' className='text-4xl text-secondary'>Biletcim</a>

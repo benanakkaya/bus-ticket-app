@@ -18,6 +18,8 @@ function Voyages(props) {
   const [targetSeats,setTargetSeats] = useState([]);
   const [newSeats,setNewSeats] = useState([]);
 
+  const [selectedSeats, setSelectedSeats] = useState([]);
+
   const fetchVoyages = async (values) => {
     var dateFormat = values.date.split("-").reverse();
     dateFormat[0] = dateFormat[0] + "-";
@@ -88,7 +90,9 @@ function Voyages(props) {
     setTargetSeats,
     targetSeats,
     newSeats,
-    setNewSeats
+    setNewSeats,
+    selectedSeats,
+    setSelectedSeats
 
   }
 

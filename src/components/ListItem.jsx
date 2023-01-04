@@ -1,14 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { VoyagesContext } from '../contexts/Voyages';
 
 
 
-function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordGT, setYCordGT, selectedSeats, setSelectedSeats, setSelected }) {
+function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordGT, setYCordGT, setSelected }) {
 
-    const { setTargetSeats, setPessengers, pessengers,setNewSeats } = useContext(VoyagesContext);
+    const { setTargetSeats, setPessengers, pessengers,setNewSeats,selectedSeats ,setSelectedSeats } = useContext(VoyagesContext);
     
+    useEffect(() => {
+        setSelectedSeats([]);
+    },[])
 
     var navigate = useNavigate();
 
