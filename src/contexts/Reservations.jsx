@@ -15,8 +15,8 @@ function Reservations(props) {
     console.log(value)
   }
 
-  const reservationCancellation = async () => {
-    await axios.delete(`http://localhost:3002/reservations/${inquiredReservation[0].id}`);
+  const reservationCancellation = async (id) => {
+    await axios.delete(`http://localhost:3002/reservations/${id}`);
     setInquiredReservation([]);
   }
 

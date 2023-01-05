@@ -2,8 +2,12 @@ import { useFormik } from 'formik';
 import React, { useContext } from 'react'
 import { UsersContext } from '../contexts/Users';
 import * as yup from "yup";
+import { FormattedMessage, IntlProvider } from 'react-intl';
+import { LanguagesContext } from '../contexts/Languages';
 
 function UserModal() {
+
+    const { locale, messages } = useContext(LanguagesContext);
 
     const { modalState, setModalState, loginFormState, setFormState, formState, setNewUser,loginControl } = useContext(UsersContext);
 
@@ -53,6 +57,7 @@ function UserModal() {
 
     return (
         <>
+        <IntlProvider locale={locale} messages={messages[locale]} >
             {modalState === true ?
                 <div className="fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center" style={{ zIndex: "2" }}>
                     <div className="fixed inset-0 transition-opacity">
@@ -66,41 +71,41 @@ function UserModal() {
                         </div>
                         {formState === "register" ?
                             <form onSubmit={registerForm.handleSubmit} className="space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8" action="#">
-                                <h3 className="text-xl font-medium text-secondary "><i className="fa-solid fa-user-plus mr-2"></i> Siteye Kayıt Ol</h3>
+                                <h3 className="text-xl font-medium text-secondary "><i className="fa-solid fa-user-plus mr-2"></i> <FormattedMessage id="registerHeader" /></h3>
                                 <div>
-                                    <label htmlFor="username" className="text-sm font-medium text-secondary block mb-2 ">Kullanıcı Adı *</label>
-                                    <input onChange={registerForm.handleChange} type="text" name="username" id="username" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5 " placeholder="Kullanıcı Adı" required="" />
+                                    <label htmlFor="username" className="text-sm font-medium text-secondary block mb-2 "><FormattedMessage id="username" /> *</label>
+                                    <input onChange={registerForm.handleChange} type="text" name="username" id="username" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5 " placeholder={locale === "tr-TR" ? "Kullanıcı Adı" : "Username"} required="" />
                                 </div>
                                 <div>
                                     <label htmlFor="email" className="text-sm font-medium text-secondary block mb-2 ">E-mail *</label>
-                                    <input onChange={registerForm.handleChange} type="email" name="email" id="email" placeholder="isim@mail.com" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5 " required="" />
+                                    <input onChange={registerForm.handleChange} type="email" name="email" id="email" placeholder={locale === "tr-TR" ? "isim@email.com" : "name@email.com"} className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5 " required="" />
                                 </div>
                                 <div>
-                                    <label htmlFor="password" className="text-sm font-medium text-secondary block mb-2 ">Parola *</label>
+                                    <label htmlFor="password" className="text-sm font-medium text-secondary block mb-2 "><FormattedMessage id="password" /> *</label>
                                     <input onChange={registerForm.handleChange} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5" required="" />
                                 </div>
                                 <div>
-                                    <label htmlFor="password2" className="text-sm font-medium text-secondary block mb-2 ">Parola (Tekrar) *</label>
+                                    <label htmlFor="password2" className="text-sm font-medium text-secondary block mb-2 "><FormattedMessage id="password" /> (<FormattedMessage id="repeat" />) *</label>
                                     <input onChange={registerForm.handleChange} type="password" name="password2" id="password2" placeholder="••••••••" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5" required="" />
                                 </div>
-                                <button type="submit" className="w-full text-white bg-secondary hover:bg-green-600 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Kayıt İşlemini Tamamla</button>
+                                <button type="submit" className="w-full text-white bg-secondary hover:bg-green-600 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><FormattedMessage id="complete" /></button>
                                 <div className="text-sm font-medium text-gray-900  flex justify-center">
-                                    Zaten bir hesabınız var mı? <a href="#" onClick={(e) => handleForm(e,"login")}  className="text-secondary hover:underline  ml-1">Giriş Yap</a>
+                                <FormattedMessage id="alreadyHave" /> <a href="#" onClick={(e) => handleForm(e,"login")}  className="text-secondary hover:underline  ml-1"><FormattedMessage id="signIn" /></a>
                                 </div>
                             </form> :
                             <form onSubmit={loginForm.handleSubmit} className="space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8" action="#">
-                                <h3 className="text-xl font-medium text-secondary "><i className="fa-solid fa-arrow-right-to-bracket mr-2"></i> Siteye Giriş Yap</h3>
+                                <h3 className="text-xl font-medium text-secondary "><i className="fa-solid fa-arrow-right-to-bracket mr-2"></i> <FormattedMessage id="loginHeader" /></h3>
                                 <div>
-                                    <label htmlFor="username" className="text-sm font-medium text-secondary block mb-2 ">Kullanıcı Adı *</label>
-                                    <input onChange={loginForm.handleChange} type="text" name="username" id="username" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5 " placeholder="Kullanıcı Adı" required="" />
+                                    <label htmlFor="username" className="text-sm font-medium text-secondary block mb-2 "><FormattedMessage id="username" /> *</label>
+                                    <input onChange={loginForm.handleChange} type="text" name="username" id="username" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5 " placeholder={locale === "tr-TR" ? "Kullanıcı Adı" : "Username"} required="" />
                                 </div>
                                 <div>
-                                    <label htmlFor="password" className="text-sm font-medium text-secondary block mb-2 ">Parola *</label>
+                                    <label htmlFor="password" className="text-sm font-medium text-secondary block mb-2 "><FormattedMessage id="password" /> *</label>
                                     <input onChange={loginForm.handleChange} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-900 text-gray-900 sm:text-sm rounded-lg focus:outline-secondary block w-full p-2.5" required="" />
                                 </div>
-                                <button type="submit" className="w-full text-white bg-secondary hover:bg-green-600 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Giriş Yap</button>
+                                <button type="submit" className="w-full text-white bg-secondary hover:bg-green-600 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><FormattedMessage id="signIn" /></button>
                                 <div className="text-sm font-medium text-gray-900  flex justify-center">
-                                    Henüz bir hesabınız yok mu? <a href='#/'  onClick={(e) => handleForm(e,"register")} className="text-secondary hover:underline  ml-1">Kayıt Ol</a>
+                                    <FormattedMessage id="dontHave" /> <a href='#/'  onClick={(e) => handleForm(e,"register")} className="text-secondary hover:underline  ml-1"><FormattedMessage id="signUp" /></a>
                                 </div>
                             </form>
                         }
@@ -108,6 +113,7 @@ function UserModal() {
 
                 </div>
                 : null}
+                </IntlProvider>
         </>
     )
 }

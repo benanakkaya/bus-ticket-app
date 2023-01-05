@@ -97,7 +97,7 @@ function Users(props) {
         setUserReservations(res.data)
     }
 
-console.log(userReservations);
+
 
     const values = {
         modalState,
@@ -108,7 +108,10 @@ console.log(userReservations);
         loginned,
         loginnedUser,
         loginControl,
-        handleLogout
+        handleLogout,
+        userReservations,
+        setUserReservations,
+        fetchUserReservations   
     }
 
     return (

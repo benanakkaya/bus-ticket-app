@@ -1,10 +1,13 @@
 import React, { useContext } from 'react'
+import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
+import { LanguagesContext } from '../contexts/Languages';
 import { UsersContext } from '../contexts/Users';
 
 function Navbar() {
 
     const { setFormState, setModalState, loginned, loginnedUser, handleLogout } = useContext(UsersContext);
+    const { setLangModalState, locale } = useContext(LanguagesContext);
 
     const handleForm = (modal, form) => {
         setFormState(form);
@@ -24,31 +27,35 @@ function Navbar() {
 
 
                 <div className='navbar-middle flex flex-1 mx-10 gap-x-4 hidden lg:flex '>
-                    <a href='#/' className='hover:text-customgray'>Otobüs Bileti</a>
-                    <Link to='/ticket-check' className='hover:text-customgray'>Bilet Sorgulama</Link>
+                    <a href='#/' className='hover:text-customgray'><FormattedMessage id="busTicket" /></a>
+                    <Link to='/ticket-check' className='hover:text-customgray'><FormattedMessage id="ticketCheck" /></Link>
                 </div>
 
                 {loginned === true ?
                     <div className='mr-8'>
-                        Hoşgeldin <span className='text-orange-300'>{loginnedUser} </span>
+                        <FormattedMessage id="welcome" /> <span className='text-orange-300'>{loginnedUser} </span>
                     </div>
                     : null}
 
                 <div className='navbar-end flex gap-x-4 hidden md:flex '>
-                    <a href='#/' className='hover:text-customgray'>Hakkımızda</a>
-                    <a href='#/' className='hover:text-customgray'>İletişim</a>
+                    <a href='#/' className='hover:text-customgray'><FormattedMessage id="aboutUs" /></a>
+                    <a href='#/' className='hover:text-customgray'><FormattedMessage id="contact" /></a>
                     {loginned === false ?
                         <>
-                            <a href='#/' onClick={() => handleForm(true, "register")} className='hover:text-customgray'>Kayıt</a>
-                            <a href='#/' onClick={() => handleForm(true, "login")} className='hover:text-customgray'>Giriş</a>
+                            <a href='#/' onClick={() => handleForm(true, "register")} className='hover:text-customgray'><FormattedMessage id="register" /></a>
+                            <a href='#/' onClick={() => handleForm(true, "login")} className='hover:text-customgray'><FormattedMessage id="login" /></a>
                         </>
                         :
                         <>
-                            <a href='#/' className='hover:text-customgray'>Rezervasyonlarım</a>
-                            <a href='#/' onClick={() => handleLogout()} className='hover:text-customgray text-orange-600'>Çıkış</a>
+                            <Link to='/my-reservations' className='hover:text-customgray'><FormattedMessage id="myReservations" /></Link>
+                            <a href='#/' onClick={() => handleLogout()} className='hover:text-customgray text-orange-600'><FormattedMessage id="logout" /></a>
                         </>
                     }
-                    <a href='#/' className='flex items-center hover:text-customgray'><span><img className='mr-2' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/799.png' alt='language-flag' /></span> Türkçe - TRY</a>
+                    {locale === "tr-TR" ?
+                        <a href='#/' onClick={() => setLangModalState(true)} className='flex items-center hover:text-customgray'><span><img className='mr-2' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/799.png' alt='turkish' /></span> <FormattedMessage id="turkish" /> </a>
+                        :
+                        <a href='#/' onClick={() => setLangModalState(true)} className='flex items-center hover:text-customgray'><span><img className='mr-2' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/145174.png' alt='english' /></span> <FormattedMessage id="english" /> </a>
+                    }
                 </div>
 
                 {/* COLLAPSE MENU BUTTON */}
@@ -60,16 +67,16 @@ function Navbar() {
             {/* COLLAPSE MENU (MEDIUM RES VIEW) */}
             <div className='flex flex-col border-t-2 px-4 md:hidden'>
                 <div className='flex flex-col flex-1 mt-5 gap-y-3 '>
-                    <a href='#/' className='hover:text-customgray'>Otobüs Bileti</a>
-                    <a href='#/' className='hover:text-customgray'>Bilet Sorgulama</a>
+                    <a href='#/' className='hover:text-customgray'><FormattedMessage id="busTicket" /></a>
+                    <a href='#/' className='hover:text-customgray'><FormattedMessage id="ticketCheck" /></a>
                 </div>
                 <hr className='mt-3' />
                 <div className='flex flex-col mt-5 gap-y-3  '>
-                    <a href='#/' className='hover:text-customgray'>Hakkımızda</a>
-                    <a href='#/' className='hover:text-customgray'>İletişim</a>
-                    <a href='#/' onClick={() => handleForm(true, "register")} className='hover:text-customgray'>Kayıt</a>
-                    <a href='#/' onClick={() => handleForm(true, "login")} className='hover:text-customgray'>Giriş</a>
-                    <a href='#/' className='flex items-center hover:text-customgray'><span><img className='mr-2' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/799.png' alt='language-flag' /></span> Türkçe - TRY</a>
+                    <a href='#/' className='hover:text-customgray'><FormattedMessage id="aboutUs" /></a>
+                    <a href='#/' className='hover:text-customgray'><FormattedMessage id="contact" /></a>
+                    <a href='#/' onClick={() => handleForm(true, "register")} className='hover:text-customgray'><FormattedMessage id="register" /></a>
+                    <a href='#/' onClick={() => handleForm(true, "login")} className='hover:text-customgray'><FormattedMessage id="login" /></a>
+                    <a href='#/' onClick={() => setLangModalState(true)} className='flex items-center hover:text-customgray'><span><img className='mr-2' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/799.png' alt='language-flag' /></span> <FormattedMessage id="turkish" /> - TRY</a>
                 </div>
             </div>
         </header>

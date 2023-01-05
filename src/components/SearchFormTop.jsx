@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import React, { useContext } from 'react'
 import { VoyagesContext } from '../contexts/Voyages';
 import * as yup from 'yup';
+import { FormattedMessage } from 'react-intl';
 
 function SearchFormTop() {
 
@@ -32,7 +33,7 @@ function SearchFormTop() {
                     <div className='flex justify-start md:justify-center items-center gap-x-4 flex-wrap'>
                         <div className='flex justify-start items-center gap-x-4'>
                             <div className='flex flex-col'>
-                                <label htmlFor='start'>Nereden:</label>
+                                <label htmlFor='start'><FormattedMessage id="fromWhere" />:</label>
                                 <span className='mt-2 flex items-center border border-customgray px-2 bg-white' >
                                     <i className="fa-sharp fa-solid fa-location-dot text-secondary"></i>
                                     <input onChange={formik.handleChange} className='bg-white outline-none px-2 py-1 ml-2 w-28 md:w-48  h-8' placeholder={filterValues.start} name='start' type="text" />
@@ -42,7 +43,7 @@ function SearchFormTop() {
                                 <button className='mt-8 h-8'><i className="fa-solid fa-right-left"></i></button>
                             </div>
                             <div className='flex flex-col'>
-                                <label htmlFor='stop'>Nereye:</label>
+                                <label htmlFor='stop'><FormattedMessage id="toWhere" />:</label>
                                 <span className='mt-2 flex items-center border border-customgray px-2 bg-white' >
                                     <i className="fa-sharp fa-solid fa-location-dot text-secondary"></i>
                                     <input onChange={formik.handleChange} className='bg-white outline-none px-2 py-1 ml-2 w-28 md:w-48 h-8' placeholder={filterValues.stop} name='stop' type="text" />
@@ -50,14 +51,14 @@ function SearchFormTop() {
                             </div>
                         </div>
                         <div className='flex flex-col'>
-                            <label htmlFor='where'>Tarih:</label>
+                            <label htmlFor='where'><FormattedMessage id="travelDate" />:</label>
                             <span className='mt-2 border border-customgray px-2 bg-white' >
                                 <i className="fa-regular fa-calendar text-secondary"></i>
                                 <input onChange={formik.handleChange} className='bg-white date-input outline-none px-2 py-1 ml-2 w-30 md:w-48 text-center h-8' placeholder={filterValues.date} name='date' type="date" />
                                 </span>
                         </div>
                         <div >
-                            <button type='submit' className='px-5 py-1 bottom-0 mt-8 w-30 md:w-48 h-9 bg-secondary hover:bg-green-600 rounded-md text-white border border-white'>ARA</button>
+                            <button type='submit' className='px-5 py-1 bottom-0 mt-8 w-30 md:w-48 h-9 bg-secondary hover:bg-green-600 rounded-md text-white border border-white'><FormattedMessage id="find" /></button>
                         </div>
                     </div>
                 </form>

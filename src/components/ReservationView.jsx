@@ -1,12 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router';
+import { UsersContext } from '../contexts/Users';
 import { VoyagesContext } from '../contexts/Voyages'
 
 export default function ReservationView() {
 
     const { targetSeats } = useContext(VoyagesContext);
+    const {loginned,loginnedUser,fetchUserReservations} = useContext(UsersContext);
 
     const navigate = useNavigate();
+
 
 
     const handleClickBtn = () => {
@@ -46,7 +49,7 @@ export default function ReservationView() {
                                         <td>{pessenger[4].lastname}</td>
                                         <td>{pessenger[4].tel}</td>
                                         <td>{pessenger[4].tc}</td>
-                                        <td>{pessenger[0]}</td>
+                                        <td>{pessenger[4].seatNo}</td>
                                         <td>{pessenger[4].id}</td>
                                     </tr>
                                 ))}

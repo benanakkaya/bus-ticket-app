@@ -13,14 +13,14 @@ function GenderSelector({ stateGT, setStateGT, xcordGT, ycordGT, selected }) {
 
     const handleSelectGender = (e) => {
 
-        setSelectedSeats((prev) => [...prev, [selected[0].slice(9), e.target.name, selected[1], selected[2], { name: "", lastname: "", tel: "", tc: "", id: nanoid(8), username: loginnedUser }]]);
+        setSelectedSeats((prev) => [...prev, [selected[0].slice(9), e.target.name, selected[1], selected[2], { name: "", lastname: "", tel: "", tc: "", id: nanoid(8), username: loginnedUser, seatNo: selected[0].slice(9) }]]);
 
         const targetSeat = document.getElementById(`${selected[0]}`);
         targetSeat.classList.toggle("bg-gray-200");
         targetSeat.classList.toggle("bg-yellow-200");
         setStateGT(false);
 
-
+       
     }
 
     return (

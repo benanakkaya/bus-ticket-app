@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
+import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+import { LanguagesContext } from '../contexts/Languages';
 import { ReservationsContext } from '../contexts/Reservations';
 import { UsersContext } from '../contexts/Users';
 import { VoyagesContext } from '../contexts/Voyages';
@@ -13,13 +15,17 @@ function TicketPurchase() {
 
     const { setReservation } = useContext(ReservationsContext)
 
+    const {locale} = useContext(LanguagesContext);
+
+
     const navigate = useNavigate();
 
+  
 
     const handleName = (e) => {
         var seat = (e.target.id).split("-")[0];
         var targetPessenger = targetSeats.filter((element) => element[0] === seat);
-        targetPessenger[0][4] = { name: e.target.value, lastname: targetPessenger[0][4].lastname, tel: targetPessenger[0][4].tel, tc: targetPessenger[0][4].tc, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username };
+        targetPessenger[0][4] = { name: e.target.value, lastname: targetPessenger[0][4].lastname, tel: targetPessenger[0][4].tel, tc: targetPessenger[0][4].tc, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username, seatNo: targetPessenger[0][4].seatNo };
         var newPessengers = targetSeats.filter((element) => element[0] !== seat);
         setTargetSeats([...newPessengers, targetPessenger[0]])
     }
@@ -27,7 +33,7 @@ function TicketPurchase() {
     const handleLastname = (e) => {
         var seat = (e.target.id).split("-")[0];
         var targetPessenger = targetSeats.filter((element) => element[0] === seat);
-        targetPessenger[0][4] = { name: targetPessenger[0][4].name, lastname: e.target.value, tel: targetPessenger[0][4].tel, tc: targetPessenger[0][4].tc, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username };
+        targetPessenger[0][4] = { name: targetPessenger[0][4].name, lastname: e.target.value, tel: targetPessenger[0][4].tel, tc: targetPessenger[0][4].tc, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username, seatNo: targetPessenger[0][4].seatNo };
         var newPessengers = targetSeats.filter((element) => element[0] !== seat);
         setTargetSeats([...newPessengers, targetPessenger[0]])
     }
@@ -35,7 +41,7 @@ function TicketPurchase() {
     const handleTel = (e) => {
         var seat = (e.target.id).split("-")[0];
         var targetPessenger = targetSeats.filter((element) => element[0] === seat);
-        targetPessenger[0][4] = { name: targetPessenger[0][4].name, lastname: targetPessenger[0][4].lastname, tel: e.target.value, tc: targetPessenger[0][4].tc, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username };
+        targetPessenger[0][4] = { name: targetPessenger[0][4].name, lastname: targetPessenger[0][4].lastname, tel: e.target.value, tc: targetPessenger[0][4].tc, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username, seatNo: targetPessenger[0][4].seatNo };
         var newPessengers = targetSeats.filter((element) => element[0] !== seat);
         setTargetSeats([...newPessengers, targetPessenger[0]])
     }
@@ -43,7 +49,7 @@ function TicketPurchase() {
     const handleTc = (e) => {
         var seat = (e.target.id).split("-")[0];
         var targetPessenger = targetSeats.filter((element) => element[0] === seat);
-        targetPessenger[0][4] = { name: targetPessenger[0][4].name, lastname: targetPessenger[0][4].lastname, tel: targetPessenger[0][4].tel, tc: e.target.value, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username };
+        targetPessenger[0][4] = { name: targetPessenger[0][4].name, lastname: targetPessenger[0][4].lastname, tel: targetPessenger[0][4].tel, tc: e.target.value, id: targetPessenger[0][4].id, username: targetPessenger[0][4].username, seatNo: targetPessenger[0][4].seatNo };
         var newPessengers = targetSeats.filter((element) => element[0] !== seat);
         setTargetSeats([...newPessengers, targetPessenger[0]])
     }
@@ -129,10 +135,7 @@ function TicketPurchase() {
             for (var i = 0; i < targetSeats.length; i++) {
                 setReservation(targetSeats[i][4])
             }
-            if (loginned === true) {
-                fetchUserReservations(loginnedUser);
-            }
-
+         
             navigate("/reservation-view")
         }
 
@@ -149,22 +152,22 @@ function TicketPurchase() {
 
             <div className='bg-primary container p-4'>
                 <div className='border-b border-secondary py-2'>
-                    <h2 className='text-2xl '><i className="fa-solid fa-people-arrows text-secondary"></i> Rezervasyon Ekranı</h2>
+                    <h2 className='text-2xl '><i className="fa-solid fa-people-arrows text-secondary"></i> <FormattedMessage id="reservationScreen" /></h2>
                 </div>
                 <div className='px-4 py-8 flex flex-col gap-y-3'>
-                    <h3 className='mb-4'>Lütfen yolcu bilgilerini giriniz;</h3>
+                    <h3 className='mb-4'><FormattedMessage id="reservationP2" />;</h3>
                     {targetSeats.sort().map((seat, ind) => (
                         <div key={ind} className='flex justify-start items-center gap-x-2'>
                             <label className='mr-6 font-bold'>{seat[0]} Numaralı Koltuk</label>
-                            <input id={`${seat[0]}-name`} onChange={(e) => handleName(e)} className='py-1 px-2 border-2 border-black' placeholder='Adı' />
-                            <input id={`${seat[0]}-lastname`} onChange={(e) => handleLastname(e)} className='py-1 px-2 border-2 border-black' placeholder='Soyadı' />
-                            <input id={`${seat[0]}-tel`} onChange={(e) => handleTel(e)} className='py-1 px-2 border-2 border-black' placeholder='Telefon No' />
-                            <input id={`${seat[0]}-tc`} onChange={(e) => handleTc(e)} className='py-1 px-2 border-2 border-black' placeholder='Tc No' />
+                            <input id={`${seat[0]}-name`} onChange={(e) => handleName(e)} className='py-1 px-2 border-2 border-black' placeholder={locale === "tr-TR" ? "Ad" : "Name"} />
+                            <input id={`${seat[0]}-lastname`} onChange={(e) => handleLastname(e)} className='py-1 px-2 border-2 border-black' placeholder={locale === "tr-TR" ? "Soyad" : "Last Name"} />
+                            <input id={`${seat[0]}-tel`} onChange={(e) => handleTel(e)} className='py-1 px-2 border-2 border-black' placeholder={locale === "tr-TR" ? "Tel No" : "Phone Number"}/>
+                            <input id={`${seat[0]}-tc`} onChange={(e) => handleTc(e)} className='py-1 px-2 border-2 border-black' placeholder={locale === "tr-TR" ? "TC No" : "Tc Number"} />
                         </div>
                     ))}
 
 
-                    <button onClick={btnClick} className='border border-secondary rounded-lg text-secondary w-48 mt-5'>Rezerve Et</button>
+                    <button onClick={btnClick} className='border border-secondary rounded-lg text-secondary w-48 mt-5'><FormattedMessage id="reservationButton" /></button>
 
                 </div>
 

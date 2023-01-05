@@ -1,17 +1,22 @@
 import React, { useContext, useEffect } from 'react'
+import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+import { LanguagesContext } from '../contexts/Languages';
 import { VoyagesContext } from '../contexts/Voyages';
 
 
 
 function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordGT, setYCordGT, setSelected }) {
 
-    const { setTargetSeats, setPessengers, pessengers,setNewSeats,selectedSeats ,setSelectedSeats } = useContext(VoyagesContext);
-    
+    const { setTargetSeats, setPessengers, pessengers, setNewSeats, selectedSeats, setSelectedSeats } = useContext(VoyagesContext);
+
+    const { locale } = useContext(LanguagesContext);
+
+
     useEffect(() => {
         setSelectedSeats([]);
-    },[])
+    }, [])
 
     var navigate = useNavigate();
 
@@ -56,7 +61,7 @@ function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordG
             seat.classList.toggle("bg-gray-200");
 
             setSelectedSeats((prev) => prev.filter((st) => st[0] !== e.target.id.slice(9)))
-            setPessengers(pessengers.filter((e,ind) => ind !== 0));
+            setPessengers(pessengers.filter((e, ind) => ind !== 0));
             return false;
         }
         if (status === "empty" && (selectedSeats.length < 4)) {
@@ -112,11 +117,18 @@ function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordG
                 </div>
                 <div className="text-xl flex justify-center items-center gap-x-1">{voyage.price} <i className="fa-solid fa-turkish-lira-sign hidden md:flex"></i></div>
                 <div className="flex flex-col justify-center items-center gap-y-2">
-                    <button
-                        id={`btn-${voyage.id}`}
-                        onClick={(e) => handleClick(e)}
-                        className={activeVoyage === voyage.id ? 'border border-red-600 text-red-600 p-2 rounded-lg' : 'border border-secondary text-secondary p-2 rounded-lg'}>{activeVoyage === voyage.id ? "Kapat" : "Koltuk Seç"}</button>
-                    <small className='italic text-xs hidden md:flex'>{voyage.seats.flat().filter((seat) => seat.status === "empty").length > 0 ? voyage.seats.flat().filter((seat) => seat.status === "empty").length + " Boş Koltuk" : "Boş Koltuk Kalmadı"}</small>
+                    {locale === "tr-TR" ?
+                        <button
+                            id={`btn-${voyage.id}`}
+                            onClick={(e) => handleClick(e)}
+                            className={activeVoyage === voyage.id ? 'border border-red-600 text-red-600 p-2 rounded-lg' : 'border border-secondary text-secondary p-2 rounded-lg'}>{activeVoyage === voyage.id ? "Kapat" : "Koltuk Seç"}</button> :
+                        <button
+                            id={`btn-${voyage.id}`}
+                            onClick={(e) => handleClick(e)}
+                            className={activeVoyage === voyage.id ? 'border border-red-600 text-red-600 p-2 rounded-lg' : 'border border-secondary text-secondary p-2 rounded-lg'}>{activeVoyage === voyage.id ? "Close" : "Choose a Seat"}</button>}
+                    {locale === "tr-TR" ?
+                        <small className='italic text-xs hidden md:flex'>{voyage.seats.flat().filter((seat) => seat.status === "empty").length > 0 ? voyage.seats.flat().filter((seat) => seat.status === "empty").length + " Boş Koltuk" : "Boş Koltuk Kalmadı"}</small>
+                        : <small className='italic text-xs hidden md:flex'>{voyage.seats.flat().filter((seat) => seat.status === "empty").length > 0 ? voyage.seats.flat().filter((seat) => seat.status === "empty").length + " Empty Seat" : "No Space"}</small>}
                 </div>
             </div>
 
@@ -125,7 +137,7 @@ function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordG
                 <div className='flex-1 border border-customgray rounded-lg pl-4 pr-1 py-2 flex flex-col justify-center itemse-center gap-y-1  '>
                     <div className='flex gap-x-2 items-center relative h-44 '>
                         <div>
-                            <h5 className='front-info'>Ön Taraf</h5>
+                            <h5 className='front-info'><FormattedMessage id="front" /></h5>
                         </div>
                         <div className='flex justify-between items-end'>
                             {voyage.seats.map((row, rowIndex) => (
@@ -204,19 +216,19 @@ function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordG
                     <div className='seat-info flex justify-center gap-x-4 items-center'>
                         <div className='flex flex-col items-center gap-y-1'>
                             <div className='border border-customgray bg-gray-200 rounded-md py-1 px-3 w-8 '>-</div>
-                            <small>Boş Koltuk</small>
+                            <small><FormattedMessage id="emptySeat" /></small>
                         </div>
                         <div className='flex flex-col items-center gap-y-1'>
                             <div className='border border-customgray bg-pink-200 rounded-md py-1 px-3 w-8 '>-</div>
-                            <small>Kadın Yolcu</small>
+                            <small><FormattedMessage id="femaleP" /></small>
                         </div>
                         <div className='flex flex-col items-center gap-y-1'>
                             <div className='border border-customgray bg-blue-200 rounded-md py-1 px-3 w-8 '>-</div>
-                            <small>Erkek Yolcu</small>
+                            <small><FormattedMessage id="maleP" /></small>
                         </div>
                         <div className='flex flex-col items-center gap-y-1'>
                             <div className='border border-customgray bg-yellow-200 rounded-md py-1 px-3 w-8 '>-</div>
-                            <small>Seçilen Koltuk</small>
+                            <small><FormattedMessage id="selectedSeat" /></small>
                         </div>
 
                     </div>
@@ -224,7 +236,7 @@ function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordG
                         <div className='user-info flex items-center justify-center gap-x-6'>
 
                             <div className='selected-seats flex flex-col'>
-                                <small className='text-red-900'>Seçilen Koltuklar;</small>
+                                <small className='text-red-900'><FormattedMessage id="selectedSeats" />;</small>
                                 <div className='flex mt-3 gap-x-1'>
                                     {selectedSeats.map((st, ind) => (
                                         <div key={ind} className={st[1] === "man" ? 'border text-center border-customgray bg-blue-200 rounded-md py-1 w-8 ' : 'border text-center border-customgray bg-pink-200 rounded-md py-1 w-8 '}>{st[0]}</div>
@@ -233,8 +245,8 @@ function ListItem({ voyage, activeVoyage, setActiveVoyage, setStateGT, setXCordG
                             </div>
 
                             <div className='mt-7 flex'>
-                                <h5 className='flex items-center gap-x-1'>Toplam: {selectedSeats.length * voyage.price} <i className="fa-solid fa-turkish-lira-sign hidden md:flex"></i></h5>
-                                <button onClick={() => handleReserve()} className='bg-secondary hover:bg-green-600 text-white border border-white rounded-md py-1 px-2 ml-4'>Ödeme Yap</button>
+                                <h5 className='flex items-center gap-x-1'><FormattedMessage id="busTicket" />: {selectedSeats.length * voyage.price} <i className="fa-solid fa-turkish-lira-sign hidden md:flex"></i></h5>
+                                <button onClick={() => handleReserve()} className='bg-secondary hover:bg-green-600 text-white border border-white rounded-md py-1 px-2 ml-4'><FormattedMessage id="reserve" /></button>
                             </div>
 
                         </div>

@@ -245,38 +245,38 @@
       "seats": [
         [
           {
-            "number": 1,
-            "status": "woman"
-          },
-          {
-            "number": 2,
-            "status": "woman"
+            "number": 4,
+            "status": "man"
           },
           {
             "number": 3,
             "status": "man"
           },
           {
-            "number": 4,
-            "status": "man"
+            "number": 2,
+            "status": "woman"
+          },
+          {
+            "number": 1,
+            "status": "woman"
           }
         ],
         [
           {
-            "number": 8,
+            "number": 5,
             "status": "man"
+          },
+          {
+            "number": 6,
+            "status": "woman"
           },
           {
             "number": 7,
             "status": "man"
           },
           {
-            "number": 6,
-            "status": "empty"
-          },
-          {
-            "number": 5,
-            "status": "empty"
+            "number": 8,
+            "status": "man"
           }
         ],
         [
@@ -294,7 +294,7 @@
           },
           {
             "number": 9,
-            "status": "empty"
+            "status": "man"
           }
         ],
         [
@@ -304,7 +304,7 @@
           },
           {
             "number": 15,
-            "status": "empty"
+            "status": "man"
           },
           {
             "number": 14,
@@ -364,7 +364,7 @@
         [
           {
             "number": 30,
-            "status": "empty"
+            "status": "woman"
           },
           {
             "number": 29,
@@ -372,11 +372,11 @@
           },
           {
             "number": 28,
-            "status": "empty"
+            "status": "woman"
           },
           {
             "number": 27,
-            "status": "empty"
+            "status": "man"
           }
         ],
         [
@@ -418,11 +418,11 @@
         [
           {
             "number": 42,
-            "status": "empty"
+            "status": "man"
           },
           {
             "number": 41,
-            "status": "empty"
+            "status": "man"
           },
           {
             "number": 40,
@@ -833,7 +833,7 @@
         [
           {
             "number": 3,
-            "status": "empty"
+            "status": "man"
           },
           {
             "number": 2,
@@ -888,7 +888,7 @@
         ],
         [
           {
-            "number": 13,
+            "number": 15,
             "status": "woman"
           },
           {
@@ -896,7 +896,7 @@
             "status": "woman"
           },
           {
-            "number": 15,
+            "number": 13,
             "status": "woman"
           }
         ],
@@ -927,7 +927,7 @@
           },
           {
             "number": 21,
-            "status": "empty"
+            "status": "woman"
           },
           {
             "number": 20,
@@ -941,7 +941,7 @@
           },
           {
             "number": 24,
-            "status": "empty"
+            "status": "woman"
           },
           {
             "number": 23,
@@ -950,15 +950,15 @@
         ],
         [
           {
-            "number": 28,
-            "status": "empty"
+            "number": 26,
+            "status": "woman"
           },
           {
             "number": 27,
             "status": "man"
           },
           {
-            "number": 26,
+            "number": 28,
             "status": "empty"
           }
         ],
@@ -1114,35 +1114,35 @@
         ],
         [
           {
-            "number": 25,
+            "number": 23,
             "status": "man"
           },
           {
             "number": 24,
-            "status": "empty"
+            "status": "man"
           },
           {
-            "number": 23,
+            "number": 25,
             "status": "man"
           }
         ],
         [
           {
-            "number": 26,
-            "status": "man"
+            "number": 28,
+            "status": "woman"
           },
           {
             "number": 27,
             "status": "man"
           },
           {
-            "number": 28,
-            "status": "woman"
+            "number": 26,
+            "status": "man"
           }
         ],
         [
           {
-            "number": 29,
+            "number": 31,
             "status": "man"
           },
           {
@@ -1150,22 +1150,22 @@
             "status": "man"
           },
           {
-            "number": 31,
+            "number": 29,
             "status": "man"
           }
         ],
         [
           {
-            "number": 32,
-            "status": "man"
+            "number": 34,
+            "status": "woman"
           },
           {
             "number": 33,
             "status": "man"
           },
           {
-            "number": 34,
-            "status": "woman"
+            "number": 32,
+            "status": "man"
           }
         ]
       ]
@@ -1232,30 +1232,30 @@
         ],
         [
           {
-            "number": 12,
-            "status": "man"
+            "number": 10,
+            "status": "woman"
           },
           {
             "number": 11,
             "status": "man"
           },
           {
-            "number": 10,
-            "status": "empty"
+            "number": 12,
+            "status": "man"
           }
         ],
         [
           {
-            "number": 13,
-            "status": "man"
+            "number": 15,
+            "status": "empty"
           },
           {
             "number": 14,
             "status": "man"
           },
           {
-            "number": 15,
-            "status": "empty"
+            "number": 13,
+            "status": "man"
           }
         ],
         [
@@ -1361,60 +1361,12 @@
       "username": ""
     },
     {
-      "name": "Mahmut ",
-      "lastname": "Dinç",
-      "tel": "45645645678",
-      "tc": "5389655585",
-      "id": "c6032f77",
-      "username": ""
-    },
-    {
       "name": "Cansın",
       "lastname": "Özyosun",
       "tel": "65696985898",
       "tc": "5386564541",
       "id": "1a4b46c8",
       "username": ""
-    },
-    {
-      "name": "adem",
-      "lastname": "kaya",
-      "tel": "5388879591",
-      "tc": "32336378904",
-      "id": "ed81d711",
-      "username": ""
-    },
-    {
-      "name": "aslan",
-      "lastname": "can",
-      "tel": "5388879591",
-      "tc": "56556558589",
-      "id": "aaba2bf2",
-      "username": "ahmetbenan"
-    },
-    {
-      "name": "kemal",
-      "lastname": "can",
-      "tel": "5388879591",
-      "tc": "56556558589",
-      "id": "124489e0",
-      "username": "ahmetbenan"
-    },
-    {
-      "name": "aslı",
-      "lastname": "polat",
-      "tel": "5388879591",
-      "tc": "56556558589",
-      "id": "1b951426",
-      "username": "ahmetbenan"
-    },
-    {
-      "name": "soysal",
-      "lastname": "korkut",
-      "tel": "5388879591",
-      "tc": "56556558589",
-      "id": "d4bfb822",
-      "username": "ahmetbenan"
     }
   ],
   "users": [
