@@ -93,7 +93,7 @@ function Users(props) {
 
     //Üye kullanıcının rezervasyon bilgilerinin çekildiği fonksiyon
     const fetchUserReservations = async (value) => {
-        const res = await axios.get("http://localhost:3002/reservations/", { params: { username: value } });
+        const res = await axios.get("https://json-server-vercel-steel.vercel.app/reservations/", { params: { username: value } });
         setUserReservations(res.data)
     }
 

@@ -25,7 +25,7 @@ function Voyages(props) {
     dateFormat[0] = dateFormat[0] + "-";
     dateFormat[1] = dateFormat[1] + "-";
     dateFormat = dateFormat.join().replace(/,/g, "")
-    const res = await axios.get("http://localhost:3002/voyages", { params: { start: values.start, lastStop: values.stop, date: dateFormat } });
+    const res = await axios.get("https://json-server-vercel-steel.vercel.app/voyages", { params: { start: values.start, lastStop: values.stop, date: dateFormat } });
     setVoyages(res.data);
     setStatus("ready");
     setFilterValues({ start: values.start, stop: values.stop, date: values.date });
@@ -33,7 +33,7 @@ function Voyages(props) {
 
   const setNewVoyages = async (id, mani) => {
 
-    await axios.patch(`http://localhost:3002/voyages/${id}`, { seats: mani }).then(() => {
+    await axios.patch(`https://json-server-vercel-steel.vercel.app/voyages/${id}`, { seats: mani }).then(() => {
       fetchVoyages(filterValues);
     }).then(() => {
       if(filterMode === true){

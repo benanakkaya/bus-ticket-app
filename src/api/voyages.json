@@ -902,15 +902,15 @@
         ],
         [
           {
-            "number": 18,
+            "number": 16,
             "status": "man"
           },
           {
             "number": 17,
-            "status": "empty"
+            "status": "man"
           },
           {
-            "number": 16,
+            "number": 18,
             "status": "man"
           }
         ],
@@ -950,16 +950,16 @@
         ],
         [
           {
-            "number": 26,
-            "status": "woman"
+            "number": 28,
+            "status": "empty"
           },
           {
             "number": 27,
             "status": "man"
           },
           {
-            "number": 28,
-            "status": "empty"
+            "number": 26,
+            "status": "woman"
           }
         ],
         [
@@ -1095,12 +1095,12 @@
         [
           {
             "number": 19,
-            "status": "empty"
+            "status": "woman"
           }
         ],
         [
           {
-            "number": 22,
+            "number": 20,
             "status": "man"
           },
           {
@@ -1108,13 +1108,13 @@
             "status": "empty"
           },
           {
-            "number": 20,
-            "status": "empty"
+            "number": 22,
+            "status": "man"
           }
         ],
         [
           {
-            "number": 23,
+            "number": 25,
             "status": "man"
           },
           {
@@ -1122,7 +1122,7 @@
             "status": "man"
           },
           {
-            "number": 25,
+            "number": 23,
             "status": "man"
           }
         ],
@@ -1367,6 +1367,24 @@
       "tc": "5386564541",
       "id": "1a4b46c8",
       "username": ""
+    },
+    {
+      "name": " şevval",
+      "lastname": "götkaya",
+      "tel": "5511036811",
+      "tc": "65669685969",
+      "id": "3a0d13c0",
+      "username": "ahmetbenan",
+      "seatNo": "19"
+    },
+    {
+      "name": "kemal",
+      "lastname": "aslan",
+      "tel": "5545256363",
+      "tc": "65669668696",
+      "id": "96ebb27b",
+      "username": "ahmetbenan",
+      "seatNo": "20"
     }
   ],
   "users": [

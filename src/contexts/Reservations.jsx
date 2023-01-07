@@ -16,7 +16,7 @@ function Reservations(props) {
   }
 
   const reservationCancellation = async (id) => {
-    await axios.delete(`http://localhost:3002/reservations/${id}`);
+    await axios.delete(`https://json-server-vercel-steel.vercel.app/reservations/${id}`);
     setInquiredReservation([]);
   }
 
