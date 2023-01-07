@@ -65,7 +65,7 @@ function Navbar() {
             </nav>
 
             {/* COLLAPSE MENU (MEDIUM RES VIEW) */}
-            <div className='flex flex-col border-t-2 px-4 md:hidden'>
+            <div className='flex flex-col border-t-2 px-4 hidden md:hidden'>
                 <div className='flex flex-col flex-1 mt-5 gap-y-3 '>
                     <a href='#/' className='hover:text-customgray'><FormattedMessage id="busTicket" /></a>
                     <a href='#/' className='hover:text-customgray'><FormattedMessage id="ticketCheck" /></a>
