@@ -50,7 +50,7 @@ function Hero() {
     return (
         <section className="h-116 relative border-b-2 border-secondary">
             <img className='h-full w-full object-cover' src={require("../images/bus-travel.jpg")} alt="hero-pic" />
-            <div className='bg-white text-secondary h-72 w-96 sm:w-116 md:w-128 absolute left-2 md:left-16 top-20 px-4 py-2 flex-column rounded-lg'>
+            <div className='bg-white text-secondary left-4 h-72 w-11/12 overflow-hidden sm:w-116 md:w-128 absolute md:left-16 top-20 px-4 py-2 flex-column rounded-lg'>
                 <div className='flex opacity-100 gap-x-5  text-lg font-medium mb-2 '>
                     <a href='#/' className='border-b-2 border-secondary' ><FormattedMessage id="busTicket" /></a>
                 </div>

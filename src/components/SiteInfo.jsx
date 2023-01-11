@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 function SiteInfo() {
     return (
         <section className='bg-primary py-5 text-customgray border-b-2 border-customgray'>
-            <div className='container px-10 py-5 flex gap-x-5'>
+            <div className='container px-10 py-5 flex flex-col space-y-4 md:flex-row gap-x-5'>
             <article  className='flex-1'>
                 <h2 className='font-medium text-xl'><FormattedMessage id="infoHeader1" /></h2> <br/>
                 <p><FormattedMessage id="infoH1P1" /></p> <br />

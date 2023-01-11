@@ -19,25 +19,25 @@ function Navbar() {
 
     return (
 
-        <header className='navbar bg-primary h-96 flex-col  md:h-16 flex md:flex-row font-kanit text-secondary border-b-2 border-secondary px-12 text-md'>
-            <nav className='container flex justify-between items-center'>
+        <header className='navbar bg-primary flex-col flex md:flex-row font-kanit text-secondary border-b-2 border-secondary px-12 text-md'>
+            <nav className='container flex justify-between items-center h-16'>
 
                 {/* LOGO */}
                 <Link to='/' className='text-4xl'>Biletcim</Link>
 
 
-                <div className='navbar-middle flex flex-1 mx-10 gap-x-4 hidden lg:flex '>
+                <div className='navbar-middle flex-1 mx-10 gap-x-4 hidden lg:flex '>
                     <a href='#/' className='hover:text-customgray'><FormattedMessage id="busTicket" /></a>
                     <Link to='/ticket-check' className='hover:text-customgray'><FormattedMessage id="ticketCheck" /></Link>
                 </div>
 
                 {loginned === true ?
-                    <div className='mr-8'>
+                    <div className='mx-10 hidden lg:flex gap-x-2 '>
                         <FormattedMessage id="welcome" /> <span className='text-orange-300'>{loginnedUser} </span>
                     </div>
                     : null}
 
-                <div className='navbar-end flex gap-x-4 hidden md:flex '>
+                <div className='navbar-end gap-x-4 hidden lg:flex '>
                     <a href='#/' className='hover:text-customgray'><FormattedMessage id="aboutUs" /></a>
                     <a href='#/' className='hover:text-customgray'><FormattedMessage id="contact" /></a>
                     {loginned === false ?
@@ -52,20 +52,20 @@ function Navbar() {
                         </>
                     }
                     {locale === "tr-TR" ?
-                        <a href='#/' onClick={() => setLangModalState(true)} className='flex items-center hover:text-customgray'><span><img className='mr-2' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/799.png' alt='turkish' /></span> <FormattedMessage id="turkish" /> </a>
+                        <a href='#/' onClick={() => setLangModalState(true)} className='flex items-center hover:text-customgray'><img className='mr-2 ' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/799.png' alt='turkish' /> <FormattedMessage  id="turkish" /> </a>
                         :
-                        <a href='#/' onClick={() => setLangModalState(true)} className='flex items-center hover:text-customgray'><span><img className='mr-2' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/145174.png' alt='english' /></span> <FormattedMessage id="english" /> </a>
+                        <a href='#/' onClick={() => setLangModalState(true)} className='flex items-center hover:text-customgray'><img className='mr-2 ' src='https://sortitoutsi.b-cdn.net/uploads/flags_sm/145174.png' alt='english' /> <FormattedMessage id="english" /> </a>
                     }
                 </div>
 
                 {/* COLLAPSE MENU BUTTON */}
                 <div>
-                    <i className='fa-solid fa-bars text-2xl cursor-pointer md:hidden'></i>
+                    <i className='fa-solid fa-bars text-2xl cursor-pointer lg:hidden'></i>
                 </div>
             </nav>
 
             {/* COLLAPSE MENU (MEDIUM RES VIEW) */}
-            <div className='flex flex-col border-t-2 px-4 hidden md:hidden'>
+            <div className='flex flex-col border-t-2 px-4 hidden'>
                 <div className='flex flex-col flex-1 mt-5 gap-y-3 '>
                     <a href='#/' className='hover:text-customgray'><FormattedMessage id="busTicket" /></a>
                     <a href='#/' className='hover:text-customgray'><FormattedMessage id="ticketCheck" /></a>

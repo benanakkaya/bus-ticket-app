@@ -33,8 +33,8 @@ export default function LanguageModal() {
                                 <h3 className="text-xl font-medium text-secondary text-center "><i className="fa-solid fa-globe mr-2"></i> <FormattedMessage id="languageSelection" /></h3>
                                 <div className='flex justify-center items-center'>
                                     <div className='flex justify-center items-center gap-x-6'>
-                                        <div onClick={() => handleLang("tr-TR")} className='flex font-medium justify-center items-center py-2 px-4 border gap-x-2 cursor-pointer opacity-70 hover:opacity-100'><img className='w-16' src='https://sortitoutsi.b-cdn.net/uploads/flags/799.png'  alt='turkish'/> Türkçe</div>
-                                        <div onClick={() => handleLang("en-US")} className='flex font-medium justify-center items-center py-2 px-4 border gap-x-2 cursor-pointer opacity-70 hover:opacity-100 '><img className='w-16'src='https://sortitoutsi.b-cdn.net/uploads/flags/145174.png'  alt='english'/> İngilizce</div>
+                                        <div onClick={() => handleLang("tr-TR")} className='flex font-medium justify-center items-center py-2 px-4 border gap-x-2 cursor-pointer opacity-70 hover:opacity-100'><img className='w-16' src='https://sortitoutsi.b-cdn.net/uploads/flags/799.png'  alt='turkish'/> <FormattedMessage id="turkish" /></div>
+                                        <div onClick={() => handleLang("en-US")} className='flex font-medium justify-center items-center py-2 px-4 border gap-x-2 cursor-pointer opacity-70 hover:opacity-100 '><img className='w-16'src='https://sortitoutsi.b-cdn.net/uploads/flags/145174.png'  alt='english'/> <FormattedMessage id="english" /></div>
                                     </div>
                                 </div>
 

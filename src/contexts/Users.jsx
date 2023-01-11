@@ -29,7 +29,7 @@ function Users(props) {
     }, [])
 
     const loginControl = async (values) => {
-        const response = await axios.get("http://localhost:3002/users", { params: { username: values.username, password: values.password } });
+        const response = await axios.get("https://json-server-vercel-steel.vercel.app/users", { params: { username: values.username, password: values.password } });
         if (response.data.length === 1) {
             toast.success('Giriş işlemi başarılı!', {
                 position: "top-right",
@@ -64,7 +64,7 @@ function Users(props) {
     }
 
     const setNewUser = async (values) => {
-        await axios.post("http://localhost:3002/users", { id: nanoid(), username: values.username, password: values.password, email: values.email });
+        await axios.post("https://json-server-vercel-steel.vercel.app/users", { id: nanoid(), username: values.username, password: values.password, email: values.email });
         toast.success('Kayıt işlemi başarılı, giriş yapılıyor!', {
             position: "top-right",
             autoClose: 1500,

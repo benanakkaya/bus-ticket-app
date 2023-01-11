@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 
 function Footer() {
     return (
-        <footer className='bg-primary border-t border-secondary'>
+        <footer className='bg-primary border-t border-secondary overflow-hidden'>
             <div className='container' >
                 <div className='footer-top flex justify-between items-center py-3 px-6'>
                     <a href='#/' className='text-4xl text-secondary'>Biletcim</a>
