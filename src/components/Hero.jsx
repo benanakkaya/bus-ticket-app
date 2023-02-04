@@ -23,18 +23,12 @@ function Hero() {
         initialValues: {
             start: "",
             stop: "",
-            date: " "
+            date: ""
         },
         onSubmit: (values) => {
-
-
             fetchVoyages(values)
             setFilterMode(false);
-
             navigate("/bus-list")
-
-
-
         },
         validationSchema: yup.object().shape({
             start: yup.string().required("Lütfen başlangıç noktanızı seçin."),
@@ -42,6 +36,8 @@ function Hero() {
             date: yup.string().required("Lütfen bir tarih seçin"),
         })
     })
+
+
 
 
 
@@ -63,7 +59,7 @@ function Hero() {
                                     <label htmlFor='where' className='font-medium '><FormattedMessage id="fromWhere" />?</label> <br />
                                     <input id="start" onChange={formik.handleChange} placeholder={locale === "tr-TR" ? "Nereden" : "From where"} type="text" className='border-2 w-40 md:w-56 h-10 border-customgray mt-2 rounded-md box-border py-1 px-2' name='start' />
                                 </div>
-                                <i className="fa-solid fa-right-left mt-8"></i>
+                                <i  className="fa-solid fa-right-left mt-8 "></i>
                                 <div className='flex-column w-40 md:w-56'>
                                     <label htmlFor='towhere' className='font-medium mb-4'><FormattedMessage id="toWhere" />?</label> <br />
                                     <input id="stop" onChange={formik.handleChange} placeholder={locale === "tr-TR" ? "Nereye" : "To where"} type="text" className='border-2 w-40 md:w-56 h-10 border-customgray mt-2 rounded-md box-border py-1 px-2' name='stop' />
@@ -80,6 +76,7 @@ function Hero() {
                                     </div>
                                 </div>
                             </div>
+                            <small className='italic'>Sefer Bilgisini; Ankara-Zonguldak 01.01.2024 veya 02.01.2024 Girebilirsiniz</small>
                         </div>
 
                     </form>
