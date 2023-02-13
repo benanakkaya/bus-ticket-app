@@ -1,70 +1,14 @@
-# Getting Started with Create React App
+# Bus-Ticket-App (Tailwind)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**React.js** öğrenilerimi kullanarak ve **Tailwind CSS**'i deneyimlemek için geliştirdiğim bir projeydi. Responsive tasarımı için uğraşılmamıştır.
 
-## Available Scripts
+**Not:** Projede gerçek bir veritabanı kullanılmamıştır, **json-server** paketi kullanılarak fake bir api oluşturulmuş ve projede bu api kullanılmıştır.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[https://ticket-app-tailwind.vercel.app/](https://ticket-app-tailwind.vercel.app/)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Projeye Ait Ekran Görüntüleri
+![1](https://lh3.googleusercontent.com/hktmbOJFq8mNX8zreIVXsAFU0YDiC21yjE1Qal-HrvVPxla6NEQQQd2K_gzlENPOYj8OKcYsdEbkeUSV1GPGxIzC0DEOYoxi-aIFABh6fSNR7bCKdzrRxp6LSNkgJ-vXwQQrNPuyF0TgtNoh5oIOYoq4wlCtB_w1QJQmmg9LiXDVe3qWDIG7Ym3ElHOCmUow3X1Yh_vjhU1CuduQwHmNdvAcfnhZlr0-LZEXv0JJtBxb1Kzt2TlH9VYCR8B2IGOqiey-CUWoZzDqaUG4KoWZOkjjGeSSzdZxs-vi_JLyCZ-Svdn10Ms1ctnVYhtutBk6A3Trcq_lXZDdRL3zM8p9SklhEt4zA6R682MZ3kAQzJ_jpL-3MhmlO4sD8ZUvic5a_2QzgaMPGReg-7yMb_ABflFIgeCDSOIbvNly_L-noAs68WM3F-T3FEgAQkv_qWxuxyK50yQPOS9FMntA8IdsGWGG56RE-bpyFmw0UpqZyB_owygMyY8nHZHy6DRTH0GCvSgW4OlKW8G8mY1WbV9Z-Pd_6zF_cN7uVwlI5CQiYWdGSYbeHPYty3S1DT6FGZAMLrtOgqRQ6egno4D8EOpJZsoWBDptRwdSEU__-iD2tkV80RZMfPQPHOAufiAgudWtatrIkzLyqrUoYNxwS6p3ZwuRqyUXqtX2IHxPBUSbHSeltQOG-37S_VPdb-WofImfuCsMTIYiyasEKyCLyKrZwIwNJwGHft5q1pBqv4Ol3Bwm9KGT0cki3xdyyT32xYP2VLXSAI8e2-1DFbWTy_b8sm2y16HXrxYUrcAOaLN5Pt-MYkv7sSEG5F8O3TDCEmeQP2cE8ZROk4wybwEekHrSRZnxv-8LvjvQ1kV0nGjDJcv-z2dSsx3Aja_bBevsfFASdY6ySUrqJHYSbQC5e8wX8y9m8i3IN6CauEOPyqlK5b39=w1366-h657-s-no?authuser=0)![2](https://lh3.googleusercontent.com/MrU_nNGPqBnxdrdSMO3_GUUFUdU-k-sjRGHUz4yah8aoFy7V9eTh7pDFSPXODqhyZPO9cLGdiaYkGmqMWDwyMr4pC-wlMUBqrNjGqo13u4I4gv1GsQgs_Qgsfy7SzINJxrFU_zajtEeXrodJ50KGoze16kHjXULlZy2X7Ol8VXqx9ubTxlMxiCal93mCMYCHJRHEvOXA8VXNXZ3PSXk0nwl2uSZP66lUhrMCU0FLytwZPTnj9G2QX0MOXXNJlcYKiwOs6WpcyIlaXeDVR-zcXXIvdC5CV8tEjQTG-nwuzEvh0LBYBNiC6CSukUt2s_MYdoxLmdpcwMQh3q_bU8ISrIAc5B2YJeuQeYFJO4Xg_1LdQ5z1xqF--8jDS3mRoDOVfcqq_dnCUnTRnZZ9zeUYUq22MDisC5v-Y4XbuZkRlmSgDTeMtKUYNxczJA1P1qteKQMfk0t9xuA38WidgkbdDUvCtEj7Z4sLcHynVuxdV1jsWRFG8jaaOIfaao6u5Xu2uUNzMki2JOMzsPBEgxr6inUsrKA8BiJ_-Ra67aiFyOnFep83yDdyGKuocQvPLktyIvbd_NyaP6ur_VOixXxP-6QjzHyCghkePUU_xhvnLb-ZaSM0yYfDuZV32NbUGF37s6raJ7yOfZ0ySZsyBEt4PYxsCifx-VOrMRWmocqWg56GBc6u5wILXyeZWurYwY_j4h-wgrEiu3nFjtXTDJQ0QJ5HrGJydF2ilmPVg4FdBLGkHvZbw-U4nNeGngtJB0NcTE1aoPiRSc8DOzaxMaNNfE7kbUcqFnO3UP9BY84172f0Mdec150fBcofqCtTWtnmOvH1XUEi8suKXZZjE89fC5dg4XrlOQKBijOsXJ7um5p9G1sBLlUe8UqcGoEHgk9DnCGIMJ8QVF36kn6hzxvAXazlIjieNX0NLYtuYIbL3k1H=w951-h661-s-no?authuser=0)
